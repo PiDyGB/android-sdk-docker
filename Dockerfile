@@ -25,3 +25,6 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -f ${ANDROID_SDK_FILE} && \
     apt-get autoremove -y && \
     apt-get clean
+
+WORKDIR ~/
+
