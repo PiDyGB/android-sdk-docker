@@ -9,7 +9,7 @@ ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz /opt
 
 # Add environment variables
 ENV ANDROID_SDK_FILE="android-sdk_r24.4.1-linux.tgz" \
-    ANDROID_SDK_FILTER="1,3,6,29,140,147,148,149,150,151"
+    ANDROID_SDK_FILTER="1,2,3,27,139,146,147,148,149,150"
 
 ENV PATH /opt/android-sdk-linux/platform-tools:/opt/android-sdk-linux/tools:$PATH
 ENV ANDROID_HOME /opt/android-sdk-linux
