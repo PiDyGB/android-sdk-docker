@@ -15,7 +15,7 @@ RUN tar xzf android-sdk_r24.4.1-linux.tgz -C /opt
 ENV PATH=/opt/android-sdk-linux/platform-tools:/opt/android-sdk-linux/tools:$PATH
 ENV ANDROID_HOME=/opt/android-sdk-linux
 
-RUN echo y | android update sdk --no-ui --all --filter 1,3,4,29,141,148,149,150,151,152
+RUN echo y | android update sdk --no-ui --all --filter 1,3,4,30,153,160,161,162,163,164
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
