@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y dist-upgrade
 #Add required software
 RUN apt-get -y install openjdk-8-jdk lib32z1 lib32ncurses5 lib32stdc++6 git
 
-# Dowload SDK
+# Download SDK
 ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz .
 
 RUN tar xzf android-sdk_r24.4.1-linux.tgz -C /opt
