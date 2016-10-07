@@ -23,6 +23,9 @@ RUN echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/an
 #Adding /root/.android/analytics.settings to avoiding gradle exceptions
 RUN mkdir -p $HOME/.android && touch $HOME/.android/analytics.settings
 
+#Adding /root/.android/repositories.cfg 
+RUN mkdir -p $HOME/.android && echo "count=0" > $HOME/.android/repositories.cfg
+
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -f android-sdk_r24.4.1-linux.tgz && \
