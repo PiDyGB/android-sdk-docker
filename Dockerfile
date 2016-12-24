@@ -2,15 +2,15 @@ FROM ubuntu:latest
 MAINTAINER Giuseppe Buzzanca <giuseppebuzzanca@gmail.com>
 
 #Update the system
-RUN apt-get update && apt-get -y dist-upgrade
+RUN apt-get update #&& apt-get -y dist-upgrade
 
 #Add required software
-RUN apt-get -y install openjdk-8-jdk lib32z1 lib32ncurses5 lib32stdc++6 git
+RUN apt-get -y install unzip openjdk-8-jdk lib32z1 lib32ncurses5 lib32stdc++6 git
 
 # Download SDK
-ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz /opt
+ADD https://dl.google.com/android/repository/tools_r25.2.3-linux.zip /opt
 
-RUN tar xzf /opt/android-sdk_r24.4.1-linux.tgz -C /opt
+RUN unzip /opt/tools_r25.2.3-linux.zip -d /opt/android-sdk-linux
 
 ENV PATH=/opt/android-sdk-linux/platform-tools:/opt/android-sdk-linux/tools:$PATH
 ENV ANDROID_HOME=/opt/android-sdk-linux
@@ -29,6 +29,6 @@ RUN mkdir -p $HOME/.android && echo "count=0" > $HOME/.android/repositories.cfg
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    rm -f /opt/android-sdk_r24.4.1-linux.tgz && \
+    rm -f /opt/tools_r25.2.3-linux.zip && \
     apt-get autoremove -y && \
     apt-get clean
