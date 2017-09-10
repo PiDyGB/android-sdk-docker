@@ -7,10 +7,12 @@ RUN apt-get update #&& apt-get -y dist-upgrade
 #Add required software
 RUN apt-get -y install unzip openjdk-8-jdk lib32z1 lib32ncurses5 lib32stdc++6 git
 
-# Download SDK
-ADD https://dl.google.com/android/repository/tools_r25.2.3-linux.zip /opt
+ENV TOOLS_SDK_ZIP=sdk-tools-linux-3859397.zip
 
-RUN unzip /opt/tools_r25.2.3-linux.zip -d /opt/android-sdk-linux
+# Download SDK
+ADD https://dl.google.com/android/repository/${TOOLS_SDK_ZIP} /opt
+
+RUN unzip /opt/${TOOLS_SDK_ZIP} -d /opt/android-sdk-linux
 
 ENV PATH=/opt/android-sdk-linux/platform-tools:/opt/android-sdk-linux/tools:/opt/android-sdk-linux/tools/bin:$PATH
 ENV ANDROID_HOME=/opt/android-sdk-linux
@@ -29,6 +31,6 @@ RUN echo y | sdkmanager "extras;google;m2repository"
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    rm -f /opt/tools_r25.2.3-linux.zip && \
+    rm -f /opt/${TOOLS_SDK_ZIP} && \
     apt-get autoremove -y && \
     apt-get clean
