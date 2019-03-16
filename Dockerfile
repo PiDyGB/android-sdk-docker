@@ -7,7 +7,7 @@ RUN apt-get update #&& apt-get -y dist-upgrade
 #Add required software
 RUN apt-get -y install unzip openjdk-8-jdk lib32z1 lib32ncurses5 lib32stdc++6 git
 
-ENV TOOLS_SDK_ZIP=sdk-tools-linux-3859397.zip
+ENV TOOLS_SDK_ZIP=sdk-tools-linux-4333796.zip
 
 # Download SDK
 ADD https://dl.google.com/android/repository/${TOOLS_SDK_ZIP} /opt
